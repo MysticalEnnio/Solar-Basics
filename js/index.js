@@ -27,11 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       color = color ?? "black";
       strokeWidth = strokeWidth ?? 0;
       strokeColor = strokeColor ?? "black";
-      bg.createCircle2(x, y, radius, color, id, strokeWidth, strokeColor)
-      const circle = document.getElementById(id)
-      return circle
-    },
-    createCircle2: (x, y, radius, color, id, strokeWidth, strokeColor) => {
       const Circle = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'circle'
@@ -46,6 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
       Circle.setAttribute('stroke', strokeColor)
 
       bg.svg.appendChild(Circle)
+      const circle = document.getElementById(id)
+      return circle
+    },
+    createRectangle: (x, y, width, height, color, id, strokeWidth, strokeColor, rx, ry) => {
+      if(!(x&&y&&radius&&id)) return;
+      color = color ?? "black";
+      strokeWidth = strokeWidth ?? 0;
+      strokeColor = strokeColor ?? "black";
+      const Rectangle = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'circle'
+      );
+
+      Rectangle.setAttribute('x', x);
+      Rectangle.setAttribute('y', y);
+      Rectangle.setAttribute('width', width);
+      Rectangle.setAttribute('height', height);
+      Rectangle.setAttribute('id', id);
+      Rectangle.setAttribute('rx', id);
+      Rectangle.setAttribute('ry', id);
+      Rectangle.setAttribute('style', `${color}`);
+      Rectangle.setAttribute('stroke-width', strokeWidth);
+      Rectangle.setAttribute('stroke', strokeColor);
+
+      bg.svg.appendChild(Rectangle)
+      const rectangle = document.getElementById(id)
+      return rectangle
     }
   }
 
